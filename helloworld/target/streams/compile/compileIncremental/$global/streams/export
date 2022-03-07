@@ -1,0 +1,1 @@
+scalac -classpath /Users/takao.hayashi/Develop/github.com/takao-h/test/helloworld/target/scala-2.12/classes -bootclasspath /Users/takao.hayashi/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.8.jar /Users/takao.hayashi/Develop/github.com/takao-h/test/helloworld/src/main/scala/example/Hello.scala
