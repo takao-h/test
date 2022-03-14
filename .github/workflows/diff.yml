@@ -11,4 +11,4 @@ jobs:
         run: |
           diff=$(git diff -- helloworld/src/main/scala/example/hello.scala)
           echo $diff
-          echo "::set-output name=diff::$diff"
+
