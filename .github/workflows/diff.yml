@@ -1,20 +1,14 @@
 name: push-develop
 on: [push]
 jobs:
-  changes:
+  precheck:
     runs-on: ubuntu-latest
+    outputs:
+      files_changed: ${{ steps.file_changes.outputs.diff }}
     steps:
-      - id: file_changes
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - name: Get Diff
-        uses: technote-space/get-diff-action@v5
-        with:
-          FILES: |
-            README.md 
-
-      - name: notify diff
-        if: contains(env.GIT_DIFF, 'README.md')
-        run: echo ${{ env.GIT_DIFF }}
+      - id: file_changes
+        run: |
+          diff=$(git diff -- helloworld/src/main/scala/example/hello.scala)
+          echo $diff
+          echo "::set-output name=diff::$diff"
