@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v2
       - id: file_changes
         run: |
-              if ! git diff --helloworld/src/main/scala/example/Hello.scala --exit-code --quiet; then
-                echo "::set-output name=diff::$diff"
-              fi
+          diff=$(git diff -- project/Dependencies.scala)
+          echo $diff
+          echo "::set-output name=diff::$diff"
 
